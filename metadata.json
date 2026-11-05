@@ -1,0 +1,6 @@
+{
+  "name": "HeatWise — Heat Smart. Eat Safe.",
+  "description": "Interactive educational platform raising awareness about food overheating, safety, nutrition, and everyday cooking practices.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,66 @@
+{
+  "entities": {
+    "UserProfile": {
+      "title": "UserProfile",
+      "description": "Public profile and authentication data for a HeatWise user",
+      "type": "object",
+      "properties": {
+        "uid": {
+          "type": "string",
+          "description": "Firebase Authentication UID"
+        },
+        "displayName": {
+          "type": "string",
+          "description": "User display name"
+        },
+        "email": {
+          "type": "string",
+          "description": "User email address"
+        },
+        "photoURL": {
+          "type": "string",
+          "description": "Avatar URL from Google Auth"
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Timestamp ISO string when account was initialized"
+        }
+      },
+      "required": ["uid", "email"]
+    },
+    "QuizHistory": {
+      "title": "QuizHistory",
+      "description": "User quiz attempt history and safety scores",
+      "type": "object",
+      "properties": {
+        "score": {
+          "type": "number",
+          "description": "Total score achieved out of 5"
+        },
+        "total": {
+          "type": "number",
+          "description": "Total questions in the quiz"
+        },
+        "badge": {
+          "type": "string",
+          "description": "Title earned, e.g., Master Food Heater"
+        },
+        "completedAt": {
+          "type": "string",
+          "description": "Timestamp of quiz completion"
+        }
+      },
+      "required": ["score", "total", "completedAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "UserProfile",
+      "description": "Root user profile document"
+    },
+    "/users/{userId}/quizHistory/{historyId}": {
+      "schema": "QuizHistory",
+      "description": "Subcollection of quiz attempts for the user"
+    }
+  }
+}
